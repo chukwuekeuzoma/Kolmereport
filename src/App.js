@@ -1,6 +1,22 @@
 import logo from './logo.svg';
 import './App.scss';
 
+import { HashRouter, Route, Switch } from "react-router-dom"
+
+function RouteWithLayout({ Layout, Component, ...rest }) {
+  return (
+    <Route {...rest} >
+      <Layout {...rest} >
+        <Component {...rest} />
+      </Layout>
+    </Route>
+
+  )
+}
+
+
+
+
 function App() {
   return (
     <div className="App">

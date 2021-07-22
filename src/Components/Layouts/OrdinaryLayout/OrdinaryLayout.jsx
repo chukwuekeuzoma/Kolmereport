@@ -1,7 +1,6 @@
 import React from 'react';
-import "./Hompage.scss"
 
-export default function Hompage(props) {
+export default function OrdinaryLayout(props) {
     return (
         <>
             <div>
@@ -10,4 +9,3 @@ export default function Hompage(props) {
         </>
     );
 }
-

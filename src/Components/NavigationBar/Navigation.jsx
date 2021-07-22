@@ -1,7 +1,7 @@
 import React from 'react';
-import "./Hompage.scss"
+import "./Navigation.scss"
 
-export default function Hompage(props) {
+export default function Navigation(props) {
     return (
         <>
             <div>
