@@ -1,6 +1,7 @@
-import logo from './logo.svg';
-import './App.scss';
-
+// import logo from './logo.svg';
+// import './App.scss';
+import Homepage from "./Components/Homepage/Hompage"
+import OrdinaryLayout from "./Components/Layouts/OrdinaryLayout/OrdinaryLayout";
 import { HashRouter, Route, Switch } from "react-router-dom"
 
 function RouteWithLayout({ Layout, Component, ...rest }) {
@@ -19,22 +20,18 @@ function RouteWithLayout({ Layout, Component, ...rest }) {
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HashRouter>
+        <div>
+          <Switch>
+             <RouteWithLayout Layout={OrdinaryLayout} exact path="/" Component={Homepage} >
+
+            </RouteWithLayout>
+          </Switch>
+
+        </div>
+      </HashRouter>
+    </>
   );
 }
 
