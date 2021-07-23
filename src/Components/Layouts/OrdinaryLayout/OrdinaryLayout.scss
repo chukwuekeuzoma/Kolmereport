@@ -1,1 +1,18 @@
-@import "../../../ScssMixin/mixin.scss"
+@import "../../../ScssMixin/mixin.scss";
+
+.ORl_container{
+    @include flex; 
+   
+
+    .ORl_Navigation{
+        width:30vw;
+    }
+
+
+    .ORl_children{
+        width:70vw;
+    }
+}
+
+
+

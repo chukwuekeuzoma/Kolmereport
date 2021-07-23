@@ -1,0 +1,42 @@
+@import "../../ScssMixin/mixin.scss";
+
+
+.Hom_container{
+ @include flex;
+ justify-content:space-between;
+ align-items: center;
+ margin-top: 100px;
+
+
+    .Hom_button{
+        text-transform: none !important;
+        color:white !important;
+        background: #cc7722 !important;
+        border: none !important;
+        margin-right:150px;
+    }
+
+}
+
+.Hom_line_container{
+    @include flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 150px;
+
+    .Hom_line{
+         margin-top:2px;
+         height: 2px;
+         width: 100%;
+         background-color:rgb(231, 230, 225) !important;
+     }
+}
+
+.Data_grid_container{
+    height:400px;
+    width: 80%;
+    margin-top: 20px;
+}
+ 
+
+

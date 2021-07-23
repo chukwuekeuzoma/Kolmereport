@@ -1,2 +1,90 @@
-@import "../../ScssMixin/mixin.scss"
+@import "../../ScssMixin/mixin.scss";
 
+.NAV_container{
+    margin-top: 100px;
+
+    .NAV_Dashboard{
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        padding-right:50px;
+        cursor: pointer;
+        color:black !important;
+        opacity: 0.5;
+    }
+
+    .NAV_Dashboard:hover{
+        opacity: 0.9;
+        transition:0.3s;
+    }
+
+    .NAV_Notes{
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        padding-right:50px;
+        cursor: pointer;
+        margin-top: 10px;
+        color:black !important;
+        opacity: 0.5;
+        transition:0.3s;
+    }
+
+    .NAV_Notes:hover{
+        opacity: 0.9;
+        transition:0.3s;
+    }
+
+    .DashboardIcon{
+        padding-right:20px !important;
+    }
+
+    .NotesIcon{
+        padding-right:20px !important;
+    }
+}
+
+.NAV_container_two{
+    margin-top: 300px;
+
+    .NAV_settings{
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        padding-right:50px;
+        cursor: pointer;
+        color:black !important;
+        opacity: 0.5;
+        transition:0.3s;
+    }
+
+    .NAV_settings:hover{
+        opacity: 0.9;
+        transition:0.3s;
+    }
+
+    .NAV_Exit{
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        padding-right:50px;
+        cursor: pointer;
+        margin-top: 10px;
+        color:black !important;
+        opacity: 0.5;
+        transition:0.3s;
+    }
+
+    .NAV_Exit:hover{
+        opacity: 0.9;
+        transition:0.3s;
+    } 
+
+    .SettingsIcon{
+        padding-right:20px !important;
+    }
+
+    .ExitIcon{
+        padding-right:20px !important; 
+    }
+}
