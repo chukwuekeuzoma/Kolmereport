@@ -1,0 +1,54 @@
+@import "../../ScssMixin/mixin.scss";
+
+
+// .dialog_action_button{
+//     position: absolute !important;
+//     border-radius: none !important;
+// }
+
+.Dia_field_one_container{
+    @include flex;
+}
+
+.Phone_textfield{
+    margin-left: 10px !important;
+}
+
+.Delivery_textfield{
+    margin-top:25px !important;
+    width: 95% !important;
+}
+
+.Product_textfield{
+    margin-top:25px !important;
+}
+
+.Quantity_textfield{
+    margin-top:25px !important;
+    width: 126px !important;
+}
+
+.Weight_textfield{
+    margin-top:25px !important;
+    margin-left: 10px !important; 
+    margin-right: 10px !important;
+    width: 126px !important;
+}
+
+.Freight_textfield{
+    margin-top:25px !important;
+    width: 126px !important;
+}
+.Cost_textfield{
+    margin-top:25px !important;
+}
+
+.Dialog_button{
+    text-transform: none !important;
+    color:white !important;
+    background: #cc7722 !important;
+    border: none !important;
+    width: 100% !important;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+}
