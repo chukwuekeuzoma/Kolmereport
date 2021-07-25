@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Paper, TextField, Button, Dialog, Slide, DialogContent, DialogActions } from '@material-ui/core';
+import {TextField, Button, Dialog, Slide, DialogContent, DialogActions } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import "./Dialogbox.scss"
 
@@ -183,7 +183,7 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                                     />
                             </div>
                             <Button variant="outlined" className="Dialog_button">
-                                New Order
+                                Submit
                            </Button>
                          </form>
 
