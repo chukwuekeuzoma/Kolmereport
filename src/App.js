@@ -30,14 +30,14 @@ function App() {
       setIsLoading(true)
       setTimeout(() => {
         setIsLoading(false)
-      }, 6000)
+      }, 5000)
     }, [])
 
       useEffect(() => {
         const timer = setInterval(() => {
           setProgress((oldProgress) => {
             if (oldProgress === 100) {
-              return 0;
+              return 100;
             }
             const diff = Math.random() * 10;
             return Math.min(oldProgress + diff, 100);

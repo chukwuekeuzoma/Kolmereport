@@ -1,11 +1,14 @@
 @import "../../ScssMixin/mixin.scss";
 
+
+
+
 .Preloder_container{
     @include flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 250px;
+    margin-top: 220px;
 }
 
 .Logo{

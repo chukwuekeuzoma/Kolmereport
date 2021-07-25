@@ -25,11 +25,13 @@ export default function Preloder({Progress}) {
    
     return (
         <>
+         <div className="Preloder_main_container">
             <div className="Preloder_container">
                <div><img src={Logo} alt="load" className="Logo" height="20px"/></div>
                <div className="Preloder_writeup"><span>Your trusted logistic and <br/>reporting system.</span></div>
                <BorderLinearProgress variant="determinate" value={Progress}/>
             </div>
+          </div>
         </>
     );
 }

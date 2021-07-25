@@ -16,12 +16,12 @@ export default function Navigation(props) {
                 </div>
                 <div className="NAV_Notes">
                     <Notes className="NotesIcon"/>
-                    <span>Some Label</span>
+                    <span>Check Code</span>
                 </div>
-                <div className="NAV_Notes">
+                {/* <div className="NAV_Notes">
                     <Notes className="NotesIcon"/>
                     <span>Some Label</span>
-                </div>
+                </div> */}
             </div>
              
              <div className="NAV_container_two">
