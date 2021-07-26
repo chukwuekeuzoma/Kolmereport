@@ -1,14 +1,24 @@
-import React from 'react';
+import React,{useState} from 'react';
 import "./Navigation.scss"
 import {Link} from "react-router-dom"
 import {Dashboard, Notes, Settings, ExitToApp} from '@material-ui/icons';
 
 export default function Navigation(props) {
+     const [NavClass, setNavClass] = useState("main")
+
+     const DashClass = () =>{
+        setNavClass("Dash")
+     }
+
+     const VerClass = () => {
+         setNavClass("verclass")
+     }
+
     return (
         <>
             <div className="NAV_container">
                 <Link to={{ pathname: "/" }} className="links">
-                    <div className="NAV_Dashboard">
+                    <div className={NavClass === "Dash"?"NAV_Dashboard_Click":"NAV_Dashboard"} onClick={DashClass}>
                         <Dashboard className="DashboardIcon"/>
                         <span>Dashboard<span style={{ opacity: "0" }}>.</span></span>
                     </div>
@@ -18,7 +28,7 @@ export default function Navigation(props) {
                     <span>Orders<span style={{ opacity: "0" }}>........</span></span>
                 </div>
                 <Link to={{ pathname: "/verification" }} className="links">
-                    <div className="NAV_Notes">
+                    <div className={NavClass === "verclass"?"NAV_Notes_click":"NAV_Notes"} onClick={VerClass}>
                         <Notes className="NotesIcon"/>
                         <span>Verification<span style={{ opacity: "0" }}>.</span></span>
                     </div>

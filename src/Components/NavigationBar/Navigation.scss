@@ -11,6 +11,17 @@
         cursor: pointer;
         color:black !important;
         opacity: 0.5;
+        transition:0.3s;
+    }
+
+    .NAV_Dashboard_Click{
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        margin-right:50px;
+        cursor: pointer;
+        color:black !important;
+        transition:0.3s;
     }
 
     .NAV_Dashboard:hover{
@@ -27,6 +38,17 @@
         margin-top: 10px;
         color:black !important;
         opacity: 0.5;
+        transition:0.3s;
+    }
+
+    .NAV_Notes_click{
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        margin-right:50px;
+        cursor: pointer;
+        margin-top: 10px;
+        color:black !important;
         transition:0.3s;
     }
 
@@ -55,6 +77,16 @@
         cursor: pointer;
         color:black !important;
         opacity: 0.5;
+        transition:0.3s;
+    }
+
+    .NAV_settings_click{
+        @include flex;
+        justify-content: center;
+        align-items: center;
+        margin-right:50px;
+        cursor: pointer;
+        color:black !important;
         transition:0.3s;
     }
 
