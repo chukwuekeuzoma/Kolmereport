@@ -3,6 +3,7 @@ import "./Hompage.scss"
 import {Button} from '@material-ui/core';
 import { DataGrid } from '@material-ui/data-grid';
 import Dialogbox from '../Dialogbox/Dialogbox';
+import Fade from 'react-reveal/Fade'
 
 export default function Hompage(props) {
     
@@ -29,7 +30,8 @@ export default function Hompage(props) {
 
     return (
         <>
-          <div>
+        <Fade top>
+           <div>
                <Dialogbox OpenBox={Open} CloseBox={handleClose}/>
                 <div className="Hom_container">
                     <div>
@@ -47,6 +49,7 @@ export default function Hompage(props) {
                 </div>
                 
            </div>
+        </Fade>
         </>
     );
 }

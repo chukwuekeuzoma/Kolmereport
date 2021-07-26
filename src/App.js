@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import OrdinaryLayout from "./Components/Layouts/OrdinaryLayout/OrdinaryLayout";
 import Homepage from "./Components/Homepage/Hompage"
+import Verification from './Components/Verification/Verification';
 import Preloder from "./Components/Preloder/Preloder";
 import { HashRouter, Route, Switch } from "react-router-dom"
 
@@ -26,12 +27,12 @@ function App() {
     const [isLoading, setIsLoading] = useState(false)
 
 
-    useEffect(() => {
-      setIsLoading(true)
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 5000)
-    }, [])
+      useEffect(() => {
+        setIsLoading(true)
+        setTimeout(() => {
+          setIsLoading(false)
+        }, 5000)
+      }, [])
 
       useEffect(() => {
         const timer = setInterval(() => {
@@ -56,9 +57,9 @@ function App() {
       <HashRouter>
         <div>
           <Switch>
-             <RouteWithLayout Layout={OrdinaryLayout} exact path="/" Component={Homepage} >
-
-            </RouteWithLayout>
+             <RouteWithLayout Layout={OrdinaryLayout} exact path="/" Component={Homepage} />
+             <RouteWithLayout Layout={OrdinaryLayout} exact path="/verification" Component={Verification} />
+           
           </Switch>
 
         </div>

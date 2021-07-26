@@ -8,6 +8,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const useStyles = makeStyles({
+    
     backDrop: {
         backdropFilter: "blur(3px)",
         position:"relative"
@@ -43,6 +44,13 @@ const useStyles = makeStyles({
 
 export default function Dialogbox({OpenBox, CloseBox}) {
     const classes = useStyles();
+
+    // Adding close on escape for keyboard users.
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          CloseBox();
+        }
+      });
 
     return (
         <>

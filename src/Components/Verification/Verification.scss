@@ -1,0 +1,45 @@
+@import "../../ScssMixin/mixin.scss";
+
+
+.Ver_container{
+    @include flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    margin-right: 200px;
+}
+
+.Ver_container_two{
+    @include flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+}
+
+.Ver_head{
+    font-size: smaller;
+    opacity: 0.5;
+    
+    margin-bottom: 30px;
+}
+
+.Ver_button{
+    text-transform: none !important;
+    color:white !important;
+    background: #cc7722 !important;
+    border: none !important;
+    margin-right:150px;
+}
+
+.Var_text{
+    text-align: center;
+    opacity: 0.5;
+    font-size: smaller;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.Ver_textfield{
+    width: 100%;
+}
