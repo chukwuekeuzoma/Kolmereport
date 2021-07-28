@@ -59,7 +59,6 @@ function App() {
           <Switch>
              <RouteWithLayout Layout={OrdinaryLayout} exact path="/" Component={Homepage} />
              <RouteWithLayout Layout={OrdinaryLayout} exact path="/verification" Component={Verification} />
-           
           </Switch>
 
         </div>
