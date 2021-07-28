@@ -49,7 +49,7 @@ const useStyles = makeStyles({
 
 const validationSchema = yup.object({
     name: yup.string().min(2, "Enter your real name").required("Name required"),
-    phone: yup.string().min(11, "Phone required").required("Phone required"),
+    phone: yup.string().min(13, "Country code required eg(+234)").required("Country code required eg(+234)"),
     // email: yup.string().email("Pls enter a valid email address").required(),
     address: yup.string().required("Address required"),
     productName: yup.string().required("Product required"),
@@ -62,6 +62,8 @@ const validationSchema = yup.object({
   });
 
 export default function Dialogbox({OpenBox, CloseBox}) {
+
+
     const classes = useStyles();
    
     const [error, setError] = useState("")
@@ -79,7 +81,6 @@ export default function Dialogbox({OpenBox, CloseBox}) {
 
       const onSubmit = async (values) => {
            setLoader(true)
-           console.log(values)
         axios.post('https://delivered-demo.herokuapp.com/api/orders/process', values)
           .then(response => {
             if (response.data.status === "success") {
@@ -177,6 +178,7 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                                             placeholder="Phone"
                                             name="phone"
                                             type="phone"
+                                            id="phone"
                                             variant="outlined"
                                             className="Phone_textfield"
                                             value={formik.values.phone}
@@ -337,7 +339,7 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                              </div>
                              {Loader?
                                 <Button variant="outlined" className="Dialog_button">
-                                    <PulseLoader color={"white"} size={30}/>
+                                    <PulseLoader color={"white"} size={20}/>
                                 </Button>
                                 :
                                 <Button variant="outlined" className="Dialog_button" type="submit" disabled={!formik.isValid}>
