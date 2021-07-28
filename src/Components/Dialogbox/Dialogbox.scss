@@ -51,4 +51,19 @@
     width: 100% !important;
     margin-top: 25px !important;
     margin-bottom: 25px !important;
+    text-align: center !important;
+}
+
+.field_container{
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin-left: 8px;
+}
+
+.field{
+    color: red !important;
+    font-size: 11px !important;
+    min-height:10px !important;
+    font-weight: bolder;
 }
