@@ -78,27 +78,28 @@ export default function Dialogbox({OpenBox, CloseBox}) {
 
 
       const onSubmit = async (values) => {
-        //    setLoader(true)
-        // axios.post('https://delivered-demo.herokuapp.com/api/orders/process', values)
-        //   .then(response => {
-        //     if (response.data.status === "success") {
-        //       setSuccess(response.data.message)
-        //       setError("")
-        //     };
-        //     if (response.data.data.status === "error") {
-        //       setError(response.data.message)
-        //       setSuccess("")
-        //     }
-        //     formik.resetForm();
-        //     setLoader(false)
-        //     console.log(data.data.message)
-        //   })
-        //   .catch((error) => {
-        //     setError(error.response.data.message)
-        //     setSuccess("")
-        //     setLoader(false)
-        //     console.error('Error:', error);
-        //   });
+           setLoader(true)
+           console.log(values)
+        axios.post('https://delivered-demo.herokuapp.com/api/orders/process', values)
+          .then(response => {
+            if (response.data.status === "success") {
+              setSuccess(response.data.message)
+              setError("")
+            };
+            if (response.data.status === "error") {
+              setError(response.data.message)
+              setSuccess("")
+            }
+            formik.resetForm();
+            setLoader(false)
+            // console.log(data.data.message)
+          })
+          .catch((error) => {
+            setError(error.response.data.message)
+            setSuccess("")
+            setLoader(false)
+            // console.error('Error:', error);
+          });
       }
 
 
@@ -170,7 +171,7 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                                </div>
                                <div>
                                     <div>
-                                        <TextField
+                                         <TextField
                                             size="small"
                                             label="Phone"
                                             placeholder="Phone"
