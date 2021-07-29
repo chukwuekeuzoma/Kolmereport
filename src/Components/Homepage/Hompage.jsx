@@ -4,7 +4,6 @@ import {Button} from '@material-ui/core';
 // import { DataGrid } from '@material-ui/data-grid';
 import Dialogbox from '../Dialogbox/Dialogbox';
 import Fade from 'react-reveal/Fade'
-import {generate} from "shortid"
 import moment from 'moment'
 import {Table, TableBody, TableCell,TableContainer,TableHead,TableRow, Paper, makeStyles} from '@material-ui/core';
 import axios from "axios"
@@ -79,23 +78,21 @@ export default function Hompage(props) {
                             :
                             <TableBody>
                             {orderData.map(({order_name, created_at, is_processing, id}, index ) => (
-                                // <Link to={{ pathname: `/Orders/:${id}`}} className="links">
-                                    <TableRow key={generate()}>
+                                    <TableRow key={index}>
                                         <TableCell component="th" scope="row">
-                                            {generate()}
+                                            {index + 1}
                                         </TableCell>
                                         <TableCell>{order_name}</TableCell>
                                         <TableCell type="date">{moment(created_at).format('D/MM/YYYY')}</TableCell>
                                         <TableCell>{is_processing?"pending":"success"}</TableCell>
                                         <TableCell>
-                                            <Link to={{ pathname: `/ordersdetails/:${id}`}} className="links">
+                                            <Link to={{ pathname: `/ordersdetails/${id}`}} className="links">
                                                 <Button variant="outlined" className="tb_button"> 
                                                     Details 
                                                 </Button>
                                             </Link>
                                         </TableCell>
                                     </TableRow>
-                                /* </Link> */
                             ))}
                             </TableBody>
                              }
