@@ -8,6 +8,8 @@ import {generate} from "shortid"
 import moment from 'moment'
 import {Table, TableBody, TableCell,TableContainer,TableHead,TableRow, Paper, makeStyles} from '@material-ui/core';
 import axios from "axios"
+import PulseLoader from "react-spinners/ClipLoader"
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles({
     table: {
@@ -16,22 +18,11 @@ const useStyles = makeStyles({
     },
   });
 
-//   function createData(name, calories, fat, carbs, protein) {
-//     return { name, calories, fat, carbs, protein };
-//   }
-  
-//   const rows = [
-//     createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-//     createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-//     createData('Eclair', 262, 16.0, 24, 6.0),
-//     createData('Cupcake', 305, 3.7, 67, 4.3),
-//     createData('Gingerbread', 356, 16.0, 49, 3.9),
-//   ];
-
 export default function Hompage(props) {
      const classes = useStyles();
-     const[Open, setOpen] = useState(false)
+     const [Open, setOpen] = useState(false)
      const [orderData, setorderData] = useState([])
+     const [Loder, setLoder] = useState(false)
 
       const handleClose = () => {
         setOpen(false);
@@ -43,14 +34,16 @@ export default function Hompage(props) {
 
         useEffect(() => {
             let Orderdata = true
+            setLoder(true)
             axios.get("https://delivered-demo.herokuapp.com/api/orders")
                 .then(response => {
                     if (Orderdata) {
                         setorderData(response.data.data)
+                        setLoder(false) 
                         // setBankDetails(response.data.data)
                     }
                 })
-                .catch(e => { if (Orderdata) { console.log(e) } })
+                .catch(e => { if (Orderdata) { console.log(e) } setLoder(false) })
             return () => Orderdata = false
         }, [])
 
@@ -71,7 +64,6 @@ export default function Hompage(props) {
                    <div className="Hom_line"></div>
                 </div>
                 <div className="Data_grid_container">
-                    {/* <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection /> */}
                     <TableContainer component={Paper} className={classes.table}>
                         <Table  stickyHeader aria-label="sticky table">
                             <TableHead>
@@ -80,22 +72,33 @@ export default function Hompage(props) {
                                 <TableCell>item name</TableCell>
                                 <TableCell>Date</TableCell>
                                 <TableCell>Status</TableCell>
+                                <TableCell>Details</TableCell>
                             </TableRow>
                             </TableHead>
+                            {Loder?<div className="Hom_pluse_container"><PulseLoader color={"#cc7722"} size={30}/></div> 
+                            :
                             <TableBody>
-                            {orderData.map(({order_name, created_at, is_processing}, index ) => (
-                                // <a href="row.link" style={{textDecoration:"none"}}>
-                                <TableRow key={generate()}>
-                                    <TableCell component="th" scope="row">
-                                        {generate()}
-                                    </TableCell>
-                                    <TableCell>{order_name}</TableCell>
-                                     <TableCell type="date">{moment(created_at).format('D/MM/YYYY')}</TableCell>
-                                    <TableCell>{is_processing?"pending":"success"}</TableCell>
-                                </TableRow>
-                                // </a>
+                            {orderData.map(({order_name, created_at, is_processing, id}, index ) => (
+                                // <Link to={{ pathname: `/Orders/:${id}`}} className="links">
+                                    <TableRow key={generate()}>
+                                        <TableCell component="th" scope="row">
+                                            {generate()}
+                                        </TableCell>
+                                        <TableCell>{order_name}</TableCell>
+                                        <TableCell type="date">{moment(created_at).format('D/MM/YYYY')}</TableCell>
+                                        <TableCell>{is_processing?"pending":"success"}</TableCell>
+                                        <TableCell>
+                                            <Link to={{ pathname: `/ordersdetails/:${id}`}} className="links">
+                                                <Button variant="outlined" className="tb_button"> 
+                                                    Details 
+                                                </Button>
+                                            </Link>
+                                        </TableCell>
+                                    </TableRow>
+                                /* </Link> */
                             ))}
                             </TableBody>
+                             }
                         </Table>
                     </TableContainer>
                 </div>

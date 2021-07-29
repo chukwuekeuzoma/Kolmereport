@@ -14,6 +14,10 @@ export default function Navigation(props) {
          setNavClass("verclass")
      }
 
+     const Order = () => {
+        setNavClass("Order")
+     }
+
     return (
         <>
             <div className="NAV_container">
@@ -23,10 +27,12 @@ export default function Navigation(props) {
                         <span>Dashboard<span style={{ opacity: "0" }}>.</span></span>
                     </div>
                 </Link>
-                <div className="NAV_Notes">
-                    <Notes className="NotesIcon"/>
-                    <span>Orders<span style={{ opacity: "0" }}>........</span></span>
-                </div>
+                <Link to={{ pathname: "/ordersdetails/:id" }} className="links">
+                    <div className={NavClass === "Order"?"NAV_Notes_click":"NAV_Notes"} onClick={Order}>
+                            <Notes className="NotesIcon"/>
+                            <span>Orders<span style={{ opacity: "0" }}>........</span></span>
+                    </div>
+                </Link>
                 <Link to={{ pathname: "/verification" }} className="links">
                     <div className={NavClass === "verclass"?"NAV_Notes_click":"NAV_Notes"} onClick={VerClass}>
                         <Notes className="NotesIcon"/>

@@ -1,1 +1,70 @@
 @import "../../ScssMixin/mixin.scss";
+
+
+.Order_container{
+    @include flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.Or_Sender_container{
+    @include flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.Or_qauntity_container{
+    @include flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.Or_button_container{
+    @include flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Or_header_text{
+    font-size: smaller;
+    font-weight: bolder;
+    color: #cc7722;
+}
+
+.margin_buttom{
+    margin-bottom: 40px;
+}
+
+.margin_top{
+    margin-top: 40px;
+}
+
+.font_size{
+    font-size: small;
+}
+
+.product_Name{
+    font-size: 20px;
+}
+
+.box{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    background:#cc7722;
+    margin-right: 30px;
+    margin-top: -50px;
+}
+
+.Or_button{
+        text-transform: none !important;
+        color:white !important;
+        background: #cc7722 !important;
+        border: none !important;
+        width: 200px !important;
+        margin-right: 20px !important;
+        margin-top: 50px !important;
+}
