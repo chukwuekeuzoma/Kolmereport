@@ -2,8 +2,9 @@
 // import './App.scss';
 import React, { useState, useEffect } from 'react'
 import OrdinaryLayout from "./Components/Layouts/OrdinaryLayout/OrdinaryLayout";
-import Homepage from "./Components/Homepage/Hompage"
-import Orders from './Components/Orders/Orders';
+import Orders from "./Components/Orders/Orders"
+import Home from './Components/Home/Home';
+import OrdersDetails from './Components/OrderDetails/OrderDetails';
 import Verification from './Components/Verification/Verification';
 import Preloder from "./Components/Preloder/Preloder";
 import { HashRouter, Route, Switch } from "react-router-dom"
@@ -58,9 +59,10 @@ function App() {
       <HashRouter>
         <div>
           <Switch>
-             <RouteWithLayout Layout={OrdinaryLayout} exact path="/" Component={Homepage} />
+             <RouteWithLayout Layout={OrdinaryLayout} exact path="/" Component={Home} />
              <RouteWithLayout Layout={OrdinaryLayout}  path="/verification" Component={Verification} />
-             <RouteWithLayout Layout={OrdinaryLayout}  path="/ordersdetails/:id" Component={Orders} />
+             <RouteWithLayout Layout={OrdinaryLayout}  path="/orders" Component={Orders} />
+             <RouteWithLayout Layout={OrdinaryLayout}  path="/ordersdetails/:id" Component={OrdersDetails} />
           </Switch>
 
         </div>

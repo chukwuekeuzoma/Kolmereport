@@ -1,0 +1,33 @@
+@import "../../ScssMixin/mixin.scss";
+
+
+.Home_container{
+    @include flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-top: 100px;
+   
+   
+       .Home_button{
+           text-transform: none !important;
+           color:white !important;
+           background: #cc7722 !important;
+           border: none !important;
+           margin-right:150px;
+       }
+   
+}
+
+.Home_line_container{
+    @include flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 150px;
+
+    .Home_line{
+         margin-top:2px;
+         height: 2px;
+         width: 100%;
+         background-color:rgb(231, 230, 225) !important;
+     }
+}

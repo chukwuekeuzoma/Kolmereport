@@ -1,89 +1,101 @@
-import React, { useState, useEffect } from 'react';
-import "./Orders.scss";
+import React, { useState, useEffect } from 'react'
+import "./Orders.scss"
+import Dialogbox from '../Dialogbox/Dialogbox';
+import { Button } from '@material-ui/core';
 import Fade from 'react-reveal/Fade'
-import {Button} from '@material-ui/core';
-import {useParams} from "react-router-dom"
+import moment from 'moment'
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, makeStyles } from '@material-ui/core';
 import axios from "axios"
+import PulseLoader from "react-spinners/ClipLoader"
+import { Link } from "react-router-dom"
 
+const useStyles = makeStyles({
+    table: {
+        minWidth: 650,
+        maxHeight: 440,
+    },
+});
+
+
+function useForceUpdate() {
+    const [value, setvalue] = useState(true); // integer state
+    return () => setvalue(!value); // update the state to force render
+}
 
 export default function Orders(props) {
-        
-    const [orderDetails, setorderDetails] = useState([])
-    const [Dloader, setDloder] = useState(false)
+    const classes = useStyles();
+    const [orderData, setorderData] = useState([])
+    const [Loder, setLoder] = useState(false)
 
-    const {id} = useParams(); 
+
+    const forceUpdate = useForceUpdate();
+
 
     useEffect(() => {
         let Orderdata = true
-        setDloder(true)
-        axios.get(`https://delivered-demo.herokuapp.com/api/orders/${id}`)
+        setLoder(true)
+        axios.get("https://delivered-demo.herokuapp.com/api/orders")
             .then(response => {
                 if (Orderdata) {
-                    setorderDetails(response.data.data)
-                    setDloder(false) 
-                    // setBankDetails(response.data.data)
+                    setorderData(response.data.data)
+                    setLoder(false)
                 }
             })
-            .catch(e => { if (Orderdata) { console.log(e) } setDloder(false) })
+            .catch(e => { if (Orderdata) { console.log(e) } setLoder(false) })
         return () => Orderdata = false
-    }, [id])
+    }, [])
 
     return (
         <>
             <Fade>
-                <div className="Order_container">
-                    <div>
-                        <div className ="Or_header_text"><span>Product Name</span></div>
-                        <div className="product_Name"><span>{orderDetails.order_name}</span></div>
-                        <div className="Or_Sender_container">
-                            <div>
-                                <div className ="Or_header_text"><span>Sender name</span></div>
-                                <div className="font_size"><span>{orderDetails.customer_fullname}</span></div>
-                            </div>
-                            <div>
-                                <div className ="Or_header_text"><span>Sender phone</span></div>
-                                <div className="font_size"><span>{orderDetails.customer_phone}</span></div>
-                            </div>
-                        </div>
-                        <div className="margin_buttom">
-                            <div className ="Or_header_text"><span>Address</span></div>
-                            <div className="font_size"><span>{orderDetails.address}</span></div>
-                        </div>
-                        <div>
-                            <div className ="Or_header_text"><span>Product Description</span></div>
-                            <div className="font_size"><span>{orderDetails.order_description}</span></div>
-                        </div>
-                        <div className="Or_qauntity_container">
-                            <div>
-                                <div className ="Or_header_text"><span>Quantity</span></div>
-                                <div className="font_size"><span>{orderDetails.quantity}</span></div>
-                            </div>
-                            <div>
-                                <div className ="Or_header_text"><span>Weight</span></div>
-                                <div className="font_size"><span>{orderDetails.weight}</span></div>
-                            </div>
-                            <div>
-                                <div className ="Or_header_text"><span>Frieght</span></div>
-                                <div className="font_size"><span>{orderDetails.freight}</span></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className ="Or_header_text"><span>Cost</span></div>
-                            <div className="font_size"><span>N {orderDetails.cost}</span></div>
-                        </div>
+                <Dialogbox Update={forceUpdate}/>
+                <div>
+                    <div className="Hom_text">
+                        <span>Orders</span>
                     </div>
-                    <div className="Or_button_container">
-                        <div>
-                            <div className="box">
-
-                            </div>
-                        </div>
-                        <Button variant="outlined" className="Or_button"> 
-                            Confirm Order
-                        </Button>
+                    <div className="Hom_line_container">
+                        <div className="Hom_line"></div>
+                    </div>
+                    <div className="Data_grid_container">
+                        <TableContainer component={Paper} className={classes.table}>
+                            <Table stickyHeader aria-label="sticky table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>S/N</TableCell>
+                                        <TableCell>item name</TableCell>
+                                        <TableCell>Date</TableCell>
+                                        <TableCell>Status</TableCell>
+                                        <TableCell>Details</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                {Loder ? <div className="Hom_pluse_container"><PulseLoader color={"#cc7722"} size={30} /></div>
+                                    :
+                                    <TableBody>
+                                        {orderData.map(({ order_name, created_at, is_processing, id }, index) => (
+                                            <TableRow key={index}>
+                                                <TableCell component="th" scope="row">
+                                                    {index + 1}
+                                                </TableCell>
+                                                <TableCell className="tb_cell_name">{order_name}</TableCell>
+                                                <TableCell type="date">{moment(created_at).format('D/MM/YYYY')}</TableCell>
+                                                <TableCell>{is_processing ? "Pending" : "Success"}</TableCell>
+                                                <TableCell>
+                                                    <Link to={{ pathname: `/ordersdetails/${id}` }} className="links">
+                                                        <Button variant="outlined" className="tb_button">
+                                                            Details
+                                                        </Button>
+                                                    </Link>
+                                                </TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                }
+                            </Table>
+                        </TableContainer>
                     </div>
                 </div>
             </Fade>
         </>
     );
 }
+
