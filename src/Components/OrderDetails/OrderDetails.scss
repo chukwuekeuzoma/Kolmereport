@@ -4,7 +4,7 @@
 .Order_container{
     @include flex;
     justify-content: space-between;
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 .Or_Sender_container{
@@ -34,6 +34,13 @@
     color: #cc7722;
 }
 
+.Or_phone_text{
+    font-size: smaller;
+    font-weight: bolder;
+    color: #cc7722;
+    margin-left: 20px;
+}
+
 .margin_buttom{
     margin-bottom: 40px;
 }
@@ -43,6 +50,11 @@
 }
 
 .font_size{
+    font-size: small;
+}
+
+.font_size_phone{
+    margin-left: 20px;
     font-size: small;
 }
 

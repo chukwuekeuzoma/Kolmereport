@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./Navigation.scss"
 import { Link } from "react-router-dom"
 import { Dashboard, Notes, Settings, ExitToApp } from '@material-ui/icons';
+import Logo from "../../Images/logo.png"
 
 export default function Navigation(props) {
     const [NavClass, setNavClass] = useState("main")
@@ -21,6 +22,7 @@ export default function Navigation(props) {
     return (
         <>
             <div className="NAV_container">
+                <div><img src={Logo} alt="load" height="20px"/></div>
                 <Link to={{ pathname: "/" }} className="links">
                     <div className={NavClass === "Dash" ? "NAV_Dashboard_Click" : "NAV_Dashboard"} onClick={DashClass}>
                         <Dashboard className="DashboardIcon" />

@@ -40,8 +40,8 @@ export default function OrdersDetails(props) {
                                 <div className="font_size"><span>{orderDetails.customer_fullname}</span></div>
                             </div>
                             <div>
-                                <div className ="Or_header_text"><span>Sender phone</span></div>
-                                <div className="font_size"><span>{orderDetails.customer_phone}</span></div>
+                                <div className ="Or_phone_text"><span>Sender phone</span></div>
+                                <div className="font_size_phone"><span>{orderDetails.customer_phone}</span></div>
                             </div>
                         </div>
                         <div className="margin_buttom">

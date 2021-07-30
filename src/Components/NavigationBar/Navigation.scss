@@ -3,6 +3,14 @@
 .NAV_container{
     margin-top: 100px;
 
+
+    img{
+        position: absolute;
+        top:0;
+        margin-left: 30px;
+        margin-top:30px;
+    }
+
     .NAV_Dashboard{
         @include flex;
         justify-content: center;
