@@ -48,7 +48,7 @@ export default function Orders(props) {
     return (
         <>
             <Fade>
-                <Dialogbox Update={forceUpdate}/>
+                {/* <Dialogbox Update={forceUpdate}/> */}
                 <div>
                     <div className="Hom_text">
                         <span>Orders</span>

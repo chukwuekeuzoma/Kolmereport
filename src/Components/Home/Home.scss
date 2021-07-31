@@ -31,3 +31,8 @@
          background-color:rgb(231, 230, 225) !important;
      }
 }
+
+.Home_process_container{
+    @include flex;
+    justify-content:space-between;
+}

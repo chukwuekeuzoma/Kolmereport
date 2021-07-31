@@ -33,6 +33,10 @@ export default function Home(props) {
                     <div className="Home_line_container">
                         <div className="Home_line"></div>
                     </div>
+                    <div className="Home_process_container">
+                            <div>R</div>
+                            <div>B</div>
+                    </div>
                     <Dialogbox OpenBox={Open} CloseBox={handleClose} />
                 </div>
             </Fade>

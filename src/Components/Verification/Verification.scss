@@ -8,6 +8,7 @@
     align-items: center;
     margin-top: 200px;
     margin-right: 200px;
+    height: auto;
 }
 
 .Ver_container_two{
@@ -30,6 +31,7 @@
     background: #cc7722 !important;
     border: none !important;
     margin-right:150px;
+    text-align: center !important;
 }
 
 .Var_text{
@@ -43,3 +45,19 @@
 .Ver_textfield{
     width: 100%;
 }
+
+
+.Ver_Alert{
+    margin-bottom: 15px;
+}
+
+// .Ver_button_two{
+//     text-transform: none !important;
+//     color:white !important;
+//     background: #cc7722 !important;
+//     border: none !important;
+//     width: 95% !important;
+//     margin-top: 25px !important;
+//     margin-bottom: 25px !important;
+//     text-align: center !important;
+// }
