@@ -4,6 +4,7 @@ import Fade from 'react-reveal/Fade'
 import {Button} from '@material-ui/core';
 import {useParams} from "react-router-dom"
 import axios from "axios"
+import PulseLoader from "react-spinners/ClipLoader"
 
 
 export default function OrdersDetails(props) {
@@ -30,6 +31,12 @@ export default function OrdersDetails(props) {
     return (
         <>
             <Fade>
+                {Dloader?
+                <div className="Or_pluse_container">
+                   <PulseLoader color={"#cc7722"} size={30} />
+                </div>
+                
+                :
                 <div className="Order_container">
                     <div>
                         <div className ="Or_header_text"><span>Product Name</span></div>
@@ -87,6 +94,7 @@ export default function OrdersDetails(props) {
                         } 
                     </div>
                 </div>
+                }
             </Fade>
         </>
     );

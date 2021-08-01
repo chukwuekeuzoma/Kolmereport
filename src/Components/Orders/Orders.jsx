@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "./Orders.scss"
-import Dialogbox from '../Dialogbox/Dialogbox';
+// import Dialogbox from '../Dialogbox/Dialogbox';
 import { Button } from '@material-ui/core';
 import Fade from 'react-reveal/Fade'
 import moment from 'moment'
@@ -17,10 +17,10 @@ const useStyles = makeStyles({
 });
 
 
-function useForceUpdate() {
-    const [value, setvalue] = useState(true); // integer state
-    return () => setvalue(!value); // update the state to force render
-}
+// function useForceUpdate() {
+//     const [value, setvalue] = useState(true); // integer state
+//     return () => setvalue(!value); // update the state to force render
+// }
 
 export default function Orders(props) {
     const classes = useStyles();
@@ -28,7 +28,7 @@ export default function Orders(props) {
     const [Loder, setLoder] = useState(false)
 
 
-    const forceUpdate = useForceUpdate();
+    // const forceUpdate = useForceUpdate();
 
 
     useEffect(() => {

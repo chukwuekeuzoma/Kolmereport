@@ -6,7 +6,7 @@ import Alert from '@material-ui/lab/Alert';
 import Fade from 'react-reveal/Fade'
 import axios from "axios"
 import qs from 'qs'
-import {useHistory } from "react-router-dom"
+// import {useHistory } from "react-router-dom"
 // import { useFormik } from "formik"
 // import * as yup from 'yup';
 import PulseLoader from "react-spinners/ClipLoader"
@@ -69,7 +69,7 @@ export default function Verification(props) {
     const [orderError, setorderError] = useState("")
     const [dialogLoder, setdialogLoder] = useState(false)
   
-    const history = useHistory();
+    // const history = useHistory();
 
     const codedata = {
         code
@@ -160,7 +160,7 @@ export default function Verification(props) {
                 }
             
             }
-        }) .catch(e => { if (dataCheck) { console.log(e) } 
+        }).catch(e => { if (dataCheck) { console.log(e) } 
             setError(e.response.data.message)
             setSuccess("")
             setverLoader(false) })
@@ -198,7 +198,7 @@ export default function Verification(props) {
                 }
             
             }
-        }) .catch(e => { if (Orderdata) { console.log(e) } 
+        }).catch(e => { if (Orderdata) { console.log(e) } 
             setError(e.response.data.message)
             setSuccess("")
             // setverLoader(false) 

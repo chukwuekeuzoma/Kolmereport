@@ -36,3 +36,26 @@
     @include flex;
     justify-content:space-between;
 }
+
+.Home_success_order{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.Home_pending{
+    text-align: center;
+    margin-right: 150px;
+    margin-top: 20px;
+}
+
+.Home_success_inner{
+    font-size: xx-large;
+    font-weight: bolder;
+    color:#cc7722;
+}
+
+.Home_pending_inner{
+    font-size: xx-large;
+    font-weight: bolder;
+    color:#cc7722;
+}
