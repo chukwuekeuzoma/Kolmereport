@@ -51,13 +51,29 @@
     margin-bottom: 15px;
 }
 
-// .Ver_button_two{
-//     text-transform: none !important;
-//     color:white !important;
-//     background: #cc7722 !important;
-//     border: none !important;
-//     width: 95% !important;
-//     margin-top: 25px !important;
-//     margin-bottom: 25px !important;
-//     text-align: center !important;
-// }
+.dialog_button{
+    text-transform: none !important;
+    color:white !important;
+    background: #cc7722 !important;
+    border: none !important;
+    text-align: center !important;
+    width: 95%;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+} 
+
+.ver_dialog_text{
+    margin-top: 10px;
+    color: #cc7722;
+   font-size: small;
+   font-weight: bolder;
+}
+
+.ver_dialog_inner_text{
+    font-size: smaller;
+}
+
+.ver_dialog_alert{
+     width: 95%;
+     margin-bottom: 10px;
+}

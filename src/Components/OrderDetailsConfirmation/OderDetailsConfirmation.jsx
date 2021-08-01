@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import "./OrderDetails.scss"
-import Fade from 'react-reveal/Fade'
+import "../OrderDetails/OrderDetails.scss"
+import Fade from 'react-reveal/Fade';
 import {Button} from '@material-ui/core';
-import {useParams} from "react-router-dom"
-import axios from "axios"
+import {useParams} from "react-router-dom";
+import axios from "axios";
 
+export default function OrderDetailsConfirmation(props) {
 
-export default function OrdersDetails(props) {
-        
     const [orderDetails, setorderDetails] = useState([])
     const [Dloader, setDloder] = useState(false)
 
-    const {id} = useParams(); 
+    const {token} = useParams();
+    
+   
 
     useEffect(() => {
         let Orderdata = true
         setDloder(true)
-        axios.get(`https://delivered-demo.herokuapp.com/api/orders/${id}`)
+        axios.get(`https://delivered-demo.herokuapp.com/api/orders/confirm/${token}`)
             .then(response => {
                 if (Orderdata) {
                     setorderDetails(response.data.data)
@@ -25,7 +26,7 @@ export default function OrdersDetails(props) {
             })
             .catch(e => { if (Orderdata) { console.log(e) } setDloder(false) })
         return () => Orderdata = false
-    }, [id])
+    }, [token])
 
     return (
         <>
@@ -74,17 +75,12 @@ export default function OrdersDetails(props) {
                     <div className="Or_button_container">
                         <div>
                             <div className="box">
+
+                            </div>
                         </div>
-                        </div>
-                        {orderDetails.is_processing?
                         <Button variant="outlined" className="Or_button"> 
-                            Order processing.... 
+                            Confirm Order
                         </Button>
-                        :
-                        <Button variant="outlined" className="Or_button"> 
-                            Order processed
-                        </Button>
-                        } 
                     </div>
                 </div>
             </Fade>

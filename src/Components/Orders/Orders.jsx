@@ -57,6 +57,8 @@ export default function Orders(props) {
                         <div className="Hom_line"></div>
                     </div>
                     <div className="Data_grid_container">
+                    {Loder ? <div className="Hom_pluse_container"><PulseLoader color={"#cc7722"} size={30} /></div>
+                        :
                         <TableContainer component={Paper} className={classes.table}>
                             <Table stickyHeader aria-label="sticky table">
                                 <TableHead>
@@ -68,8 +70,7 @@ export default function Orders(props) {
                                         <TableCell>Details</TableCell>
                                     </TableRow>
                                 </TableHead>
-                                {Loder ? <div className="Hom_pluse_container"><PulseLoader color={"#cc7722"} size={30} /></div>
-                                    :
+                                
                                     <TableBody>
                                         {orderData.map(({ order_name, created_at, is_processing, id }, index) => (
                                             <TableRow key={index}>
@@ -89,9 +90,9 @@ export default function Orders(props) {
                                             </TableRow>
                                         ))}
                                     </TableBody>
-                                }
+                                
                             </Table>
-                        </TableContainer>
+                        </TableContainer>}
                     </div>
                 </div>
             </Fade>

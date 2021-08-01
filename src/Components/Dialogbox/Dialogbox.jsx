@@ -61,7 +61,7 @@ const validationSchema = yup.object({
 
   });
 
-export default function Dialogbox({OpenBox, CloseBox, Update}) {
+export default function Dialogbox({OpenBox, CloseBox}) {
 
 
     const classes = useStyles();
@@ -342,7 +342,7 @@ export default function Dialogbox({OpenBox, CloseBox, Update}) {
                                     <PulseLoader color={"white"} size={20}/>
                                 </Button>
                                 :
-                                <Button variant="outlined" className="Dialog_button" type="submit" disabled={!formik.isValid}  onClick={Update}>
+                                <Button variant="outlined" className="Dialog_button" type="submit" disabled={!formik.isValid}>
                                     Submit
                                 </Button>
                              }
