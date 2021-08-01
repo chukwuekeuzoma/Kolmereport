@@ -66,7 +66,7 @@ export default function Home(props) {
                                 <br/>
                                 {/* {OrderPending.map(({is_processing}) => ( */}
                                 <span className="Home_success_inner">
-                                    47
+                                     47
                                     {/* {OrderPending.length} */}
                                     </span>
                                 {/* ))} */}
