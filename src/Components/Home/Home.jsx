@@ -3,6 +3,7 @@ import "./Home.scss"
 import Dialogbox from '../Dialogbox/Dialogbox';
 import { Button } from '@material-ui/core';
 import Fade from 'react-reveal/Fade'
+import PulseLoader from "react-spinners/ClipLoader"
 import axios from "axios"
 
 
@@ -11,6 +12,9 @@ export default function Home(props) {
 
     const [Open, setOpen] = useState(false)
     const [OrderPending, setOrderPending] = useState([])
+    const [OrderSucessful, setOrderSucessful] = useState([])
+    const [PendingLoader, setPendingLoader] = useState(false)
+    const [SucessLoader, setSucessLoader] = useState(false)
 
     const handleClose = () => {
         setOpen(false);
@@ -23,19 +27,35 @@ export default function Home(props) {
     console.log(OrderPending)
 
     useEffect(() => {
-        let Orderdata = true
-        // setLoder(true)
+        let PendingData = true
+        setPendingLoader(true)
         axios.get("https://delivered-demo.herokuapp.com/api/orders/processing")
             .then(response => {
-                if (Orderdata) {
+                if ( PendingData) {
                     setOrderPending(response.data.data)
-                    // setLoder(false)
+                    setPendingLoader(false)
                 }
             })
-            .catch(e => { if (Orderdata) { console.log(e) }
-            //  setLoder(false) 
+            .catch(e => { if (PendingData) { console.log(e) }
+             setPendingLoader(false) 
             })
-        return () => Orderdata = false
+        return () =>  PendingData = false
+    }, [])
+
+    useEffect(() => {
+        let SucessData = true
+        setSucessLoader(true)
+        axios.get("https://delivered-demo.herokuapp.com/api/orders/closed")
+            .then(response => {
+                if ( SucessData) {
+                    setOrderSucessful(response.data.data)
+                    setSucessLoader(false)
+                }
+            })
+            .catch(e => { if (SucessData) { console.log(e) }
+             setSucessLoader(false) 
+            })
+        return () =>  SucessData = false
     }, [])
 
     return (
@@ -57,19 +77,21 @@ export default function Home(props) {
                             <div className="Home_success_order">
                                 <span className="Home_success_inner">Sucsessful Orders</span>
                                 <br/>
-                                {/* {OrderPending.map((num) => ( */}
-                                <span className="Home_success_inner">47</span>
-                                 {/* ))} */}
+                                <span className="Home_success_inner">
+                                       {SucessLoader?<PulseLoader color={"#cc7722"} size={20} />
+                                        :
+                                        OrderSucessful.length}
+
+                                </span>
                             </div>
                             <div className="Home_pending">
                                 <span className="Home_pending_inner">Pending Orders</span>
-                                <br/>
-                                {/* {OrderPending.map(({is_processing}) => ( */}
-                                <span className="Home_success_inner">
-                                     47
-                                    {/* {OrderPending.length} */}
+                                   <br/>
+                                    <span className="Home_success_inner">
+                                        {PendingLoader?<PulseLoader color={"#cc7722"} size={20} />
+                                        :
+                                        OrderPending.length}
                                     </span>
-                                {/* ))} */}
                             </div>
                     </div>
                     <Dialogbox OpenBox={Open} CloseBox={handleClose} />
