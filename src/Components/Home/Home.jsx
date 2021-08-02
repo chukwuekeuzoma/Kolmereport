@@ -24,8 +24,6 @@ export default function Home(props) {
         setOpen(true);
     };
 
-    console.log(OrderPending)
-
     useEffect(() => {
         let PendingData = true
         setPendingLoader(true)
