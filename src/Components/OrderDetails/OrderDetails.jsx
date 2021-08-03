@@ -89,7 +89,7 @@ export default function OrdersDetails(props) {
                         </Button>
                         :
                         <Button variant="outlined" className="Or_button"> 
-                            ORDER PROCESSED
+                            DELIVERY SUCCESSFUL
                         </Button>
                         } 
                     </div>
