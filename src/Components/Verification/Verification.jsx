@@ -5,10 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Alert from '@material-ui/lab/Alert';
 import Fade from 'react-reveal/Fade'
 import axios from "axios"
-import qs from 'qs'
-// import {useHistory } from "react-router-dom"
-import { useFormik } from "formik"
-import * as yup from 'yup';
 import PulseLoader from "react-spinners/ClipLoader"
 
 
@@ -51,10 +47,6 @@ const useStyles = makeStyles({
 
 })
 
-const validationSchema = yup.object({
-    code: yup.string().min(6, "code required").required("code required"),
-
-  });
 
 export default function Verification(props) {
     const classes = useStyles();
@@ -65,11 +57,11 @@ export default function Verification(props) {
     const [error, setError] = useState("")
     const [success, setSuccess] = useState("")
     const [OpenConfrimDialog, setOpenConfrimDialog] = useState(false)
-    const [orderSucces, setorderSucess] = useState("")
+    const [orderSuccess, setorderSucess] = useState("")
     const [orderError, setorderError] = useState("")
     const [dialogLoder, setdialogLoder] = useState(false)
 
-    // const history = useHistory();
+
 
     const codedata = {
         code
@@ -86,129 +78,68 @@ export default function Verification(props) {
         setOpenConfrimDialog(true);
     };
 
-    // const params = new URLSearchParams()
-
-    // params.append(code)
-
-    // console.log(codedata)
 
 
 
-    const SubmitCode = (e)  => {
+    const SubmitCode = (e) => {
         e.preventDefault();
         let dataCheck = true
         setverLoader(true)
-        axios.get('https://delivered-demo.herokuapp.com/api/orders/confirm',codedata)
+        axios.post('https://delivered-demo.herokuapp.com/api/orders/confirm', codedata)
             .then(response => {
                 if (dataCheck) {
                     if (response.data.status === "success") {
                         setVerData(response.data.data)
                         setverId(response.data.data["id"])
-                        setverLoader(false) 
+                        setverLoader(false)
                         setSuccess(response.data.message)
                         setError("")
                         OpenDialog()
-                      };
-
-                      if (response.data.status === "error") {
-                        setError(response.data.message)
-                        setverLoader(false) 
-                        setSuccess("")
-                      }
-
-                }
-            })
-            .catch(e => { if (dataCheck) { console.log(e) } 
-              setError(e.response.data.message)
-              setSuccess("")
-              setverLoader(false) })
-        return () => dataCheck = false
-    }
-
-    // const options = {
-    //     method: 'GET',
-    //     headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    //     data: qs.stringify(codedata),
-    //     url: 'https://delivered-demo.herokuapp.com/api/orders/confirm',
-    //   };
-    //   axios(options)
-
-    // const SubmitCode = async (e) => {
-    //     e.preventDefault();
-    //     let dataCheck = true
-    //     setverLoader(true)
-    //     axios({
-    //         method: 'GET',
-    //         url: 'https://delivered-demo.herokuapp.com/api/orders/confirm',
-    //         data: qs.stringify({ code: code }),
-    //         // data:JSON.stringify({code:code}),
-    //         headers: {
-    //             // 'content-type': 'application/x-www-form-urlencoded'
-    //             'Content-Type': 'application/json'
-    //         }
-    //     })
-    //         .then(response => {
-    //             if (dataCheck) {
-    //                 if (response.data.status === "success") {
-    //                     setVerData(response.data.data)
-    //                     setverId(response.data.data["id"])
-    //                     setverLoader(false)
-    //                     setSuccess(response.data.message)
-    //                     setError("")
-    //                     OpenDialog()
-    //                 };
-
-    //                 if (response.data.status === "error") {
-    //                     setorderError(response.data.message)
-    //                     setverLoader(false)
-    //                     setSuccess("")
-    //                 }
-
-    //             }
-    //         }).catch(e => {
-    //             if (dataCheck) { console.log(e) }
-    //             setError(e.response.data.message)
-    //             setSuccess("")
-    //             setverLoader(false)
-    //         })
-
-    // }
-
-    // const formik = useFormik({
-    //     initialValues: {
-    //       code:"",
-    //      },
-    //     onSubmit, 
-    //     validateOnBlur: true,
-    //     validationSchema: validationSchema,
-
-    //   });
-
-
-    const onConfirmCode = (e) => {
-        // e.preventDefault();
-        let Orderdata = true
-        // setdialogLoder(true)
-        axios.get(`https://delivered-demo.herokuapp.com/api/orders/confirm/${verId}`)
-            .then(response => {
-                if (Orderdata) {
-                    if (response.data.status === "success") {
-                        setorderSucess(response.data.message)
-                        setError("")
                     };
 
                     if (response.data.status === "error") {
                         setError(response.data.message)
-                        // setverLoader(false) 
+                        setverLoader(false)
                         setSuccess("")
+                    }
+
+                }
+            })
+            .catch(e => {
+                if (dataCheck) { console.log(e) }
+                setError(e.response.data.message)
+                setSuccess("")
+                setverLoader(false)
+            })
+        return () => dataCheck = false
+    }
+
+
+
+    const onConfirmCode = () => {
+        let Orderdata = true
+        setdialogLoder(true)
+        axios.patch(`https://delivered-demo.herokuapp.com/api/orders/confirm/${verId}`)
+            .then(response => {
+                if (Orderdata) {
+                    if (response.data.status === "success") {
+                        setorderSucess(response.data.message)
+                        setorderError("")
+                        setdialogLoder(false)
+                    };
+
+                    if (response.data.status === "error") {
+                        setorderError(response.data.message)
+                        setdialogLoder(false)
+                        setorderSucess("")
                     }
 
                 }
             }).catch(e => {
                 if (Orderdata) { console.log(e) }
-                setError(e.response.data.message)
-                setSuccess("")
-                // setverLoader(false) 
+                setorderError(e.response.data.message)
+                setorderSucess("")
+                setdialogLoder(false)
             })
     }
 
@@ -216,7 +147,6 @@ export default function Verification(props) {
         <>
             <Fade bottom>
                 <div className="Ver_container">
-                    {/* <div className="Ver_head"><span>Verification</span></div> */}
                     <div>
                         <div className="Ver_Alert">
                             {error && <Alert severity="error">{error}</Alert>}
@@ -226,7 +156,6 @@ export default function Verification(props) {
                             <div className="Ver_container_two">
                                 <div>
                                     <TextField
-                                        // size="small"
                                         label="Code"
                                         placeholder="Code"
                                         name="code"
@@ -234,9 +163,6 @@ export default function Verification(props) {
                                         variant="outlined"
                                         className="Ver_textfield"
                                         onChange={e => setcode(e.target.value)}
-                                        // value={formik.values.code}
-                                        // onChange={formik.handleChange}
-                                        // onBlur={formik.handleBlur}
                                     />
                                 </div>
 
@@ -252,17 +178,11 @@ export default function Verification(props) {
                                         <PulseLoader color={"white"} size={27} />
                                     </Button>
                                     :
-                                    <Button variant="outlined" className="Ver_button" type="submit" 
-                                    disabled={!code} 
-                                    // disabled={!formik.isValid}
+                                    <Button variant="outlined" className="Ver_button" type="submit"
+                                        disabled={!code}
                                     >
                                         Confirm
                                     </Button>
-
-                                    // <Button variant="outlined" className="Ver_button" onClick={OpenDialog} > 
-                                    //    Check
-                                    // </Button>
-
                                 }
                             </div>
                         </form>
@@ -294,7 +214,7 @@ export default function Verification(props) {
                 <DialogContent style={{ width: "420px", height: "auto" }}>
                     <div className="ver_dialog_alert">
                         {orderError && <Alert severity="error">{orderError}</Alert>}
-                        {orderSucces && <Alert severity="success">{orderSucces}</Alert>}
+                        {orderSuccess && <Alert severity="success">{orderSuccess}</Alert>}
                     </div>
                     <div>
                         <div>
@@ -335,11 +255,11 @@ export default function Verification(props) {
                         </div>
                     </div>
                     {dialogLoder ?
-                        <Button variant="outlined" className="Ver_button">
+                        <Button variant="outlined" className="dialog_button">
                             <PulseLoader color={"white"} size={20} />
                         </Button>
                         :
-                        <Button variant="outlined" className="dialog_button">
+                        <Button variant="outlined" className="dialog_button" onClick={onConfirmCode}>
                             Confirm Order
                         </Button>
                     }
