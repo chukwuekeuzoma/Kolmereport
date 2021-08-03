@@ -73,23 +73,26 @@ export default function Home(props) {
                     </div>
                     <div className="Home_process_container">
                             <div className="Home_success_order">
-                                <span className="Home_success_inner">Sucsessful Orders</span>
-                                <br/>
-                                <span className="Home_success_inner">
-                                       {SucessLoader?<PulseLoader color={"#cc7722"} size={20} />
+                                <div  className="Home_success_inner">Successful Orders</div>
+                                
+                                <div className="Home_success_inner_main">
+                                    <div>
+                                       {SucessLoader?<PulseLoader color={"white"} size={25} />
                                         :
                                         OrderSucessful.length}
-
-                                </span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="Home_pending">
-                                <span className="Home_pending_inner">Pending Orders</span>
-                                   <br/>
-                                    <span className="Home_success_inner">
-                                        {PendingLoader?<PulseLoader color={"#cc7722"} size={20} />
-                                        :
-                                        OrderPending.length}
-                                    </span>
+                            <div className="Home_pending_order">
+                                <div className="Home_pending_inner">Pending Orders</div>
+                                   
+                                    <div className="Home_pending_inner_main">
+                                        <div>
+                                            {PendingLoader?<PulseLoader color={"white"} size={25} />
+                                            :
+                                            OrderPending.length}
+                                        </div>
+                                    </div>
                             </div>
                     </div>
                     <Dialogbox OpenBox={Open} CloseBox={handleClose} />

@@ -26,9 +26,11 @@ export default function Orders(props) {
     const classes = useStyles();
     const [orderData, setorderData] = useState([])
     const [Loder, setLoder] = useState(false)
-
+    
 
     // const forceUpdate = useForceUpdate();
+
+    
 
 
     useEffect(() => {
@@ -64,7 +66,7 @@ export default function Orders(props) {
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>S/N</TableCell>
-                                        <TableCell>item name</TableCell>
+                                        <TableCell>Item</TableCell>
                                         <TableCell>Date</TableCell>
                                         <TableCell>Status</TableCell>
                                         <TableCell>Details</TableCell>
@@ -72,7 +74,7 @@ export default function Orders(props) {
                                 </TableHead>
                                 
                                     <TableBody>
-                                        {orderData.map(({ order_name, created_at, is_processing, id }, index) => (
+                                        {orderData.reverse().map(({ order_name, created_at, is_processing, id }, index) => (
                                             <TableRow key={index}>
                                                 <TableCell component="th" scope="row">
                                                     {index + 1}

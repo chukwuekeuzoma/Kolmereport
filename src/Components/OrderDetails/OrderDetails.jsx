@@ -5,6 +5,7 @@ import {Button} from '@material-ui/core';
 import {useParams} from "react-router-dom"
 import axios from "axios"
 import PulseLoader from "react-spinners/ClipLoader"
+import QrCode from "../../Images/Qrcode.png"
 
 
 export default function OrdersDetails(props) {
@@ -80,16 +81,15 @@ export default function OrdersDetails(props) {
                     </div>
                     <div className="Or_button_container">
                         <div>
-                            <div className="box">
-                        </div>
+                            <div className="box"><img src={QrCode} alt="load" height="150px"/></div>
                         </div>
                         {orderDetails.is_processing?
                         <Button variant="outlined" className="Or_button"> 
-                            Order processing.... 
+                            ORDER PROCESSING 
                         </Button>
                         :
                         <Button variant="outlined" className="Or_button"> 
-                            Order processed
+                            ORDER PROCESSED
                         </Button>
                         } 
                     </div>

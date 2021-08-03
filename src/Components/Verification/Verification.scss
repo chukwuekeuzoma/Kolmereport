@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 180px;
     margin-right: 200px;
     height: auto;
 }
@@ -32,18 +32,20 @@
     border: none !important;
     margin-right:150px;
     text-align: center !important;
+    font-size: large !important;
 }
 
 .Var_text{
     text-align: center;
     opacity: 0.5;
-    font-size: smaller;
+    font-size: 20px;
+    text-transform: capitalize;
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
 .Ver_textfield{
-    width: 100%;
+    width: 400px;
 }
 
 
@@ -71,9 +73,11 @@
 
 .ver_dialog_inner_text{
     font-size: smaller;
+    text-transform: capitalize;
 }
 
 .ver_dialog_alert{
      width: 95%;
      margin-bottom: 10px;
+     text-transform: capitalize !important;
 }

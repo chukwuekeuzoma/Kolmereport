@@ -38,24 +38,60 @@
 }
 
 .Home_success_order{
-    text-align: center;
     margin-top: 20px;
+    @include flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.Home_pending{
+.Home_pending_order{
     text-align: center !important;
     margin-right: 150px !important;
     margin-top: 20px !important;
+    @include flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .Home_success_inner{
-    font-size: xx-large;
+    font-size: 40px;
     font-weight: bolder;
     color:#cc7722;
 }
 
+.Home_success_inner_main{
+    font-size: 40px;
+    font-weight: bolder;
+    color:white;
+    background: #cc7722;
+    border-radius: 100%;
+    height: 200px;
+    width: 200px;
+    @include flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
 .Home_pending_inner{
-    font-size: xx-large;
+    font-size: 40px;
     font-weight: bolder;
     color:#cc7722;
+}
+
+.Home_pending_inner_main{
+    font-size: 40px;
+    font-weight: bolder;
+    color:white;
+    background: #cc7722;
+    border-radius: 100%;
+    height: 200px;
+    width: 200px;
+    @include flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }

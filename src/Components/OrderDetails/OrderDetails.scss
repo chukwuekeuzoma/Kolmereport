@@ -29,16 +29,17 @@
 }
 
 .Or_header_text{
-    font-size: smaller;
+    font-size: larger;
     font-weight: bolder;
     color: #cc7722;
+    text-transform:capitalize;
 }
 
 .Or_phone_text{
-    font-size: smaller;
+    font-size: larger;
     font-weight: bolder;
     color: #cc7722;
-    margin-left: 20px;
+    margin-left: 40px;
 }
 
 .margin_buttom{
@@ -50,23 +51,23 @@
 }
 
 .font_size{
-    font-size: small;
+    font-size: large;
+    text-transform:capitalize;
 }
 
 .font_size_phone{
-    margin-left: 20px;
-    font-size: small;
+    margin-left: 40px;
+    font-size: large;
+    text-transform:capitalize;
 }
 
 .product_Name{
     font-size: 20px;
+    text-transform:capitalize;
 }
 
 .box{
-    height: 100px;
-    width: 100px;
-    border-radius: 10px;
-    background:#cc7722;
+    margin-right:200px ;
 }
 
 .Or_button{
