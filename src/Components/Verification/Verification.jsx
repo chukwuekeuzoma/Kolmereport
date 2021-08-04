@@ -67,9 +67,6 @@ export default function Verification(props) {
         code
     }
 
-
-    console.log(codedata)
-
     const CloseDialog = () => {
         setOpenConfrimDialog(false);
     };

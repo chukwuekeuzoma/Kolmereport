@@ -5,7 +5,6 @@ import OrdinaryLayout from "./Components/Layouts/OrdinaryLayout/OrdinaryLayout";
 import Orders from "./Components/Orders/Orders"
 import Home from './Components/Home/Home';
 import OrdersDetails from './Components/OrderDetails/OrderDetails';
-// import OrderDetailsConfirmation from './Components/OrderDetailsConfirmation/OderDetailsConfirmation';
 import Verification from './Components/Verification/Verification';
 import Preloder from "./Components/Preloder/Preloder";
 import { HashRouter, Route, Switch } from "react-router-dom"
