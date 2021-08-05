@@ -82,7 +82,7 @@ export default function OrdersDetails(props) {
                     <div className="Or_button_container">
                         <div>
                             <div className="box"><img 
-                               src={`https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=https://delivered-demo.herokuapp.com/api/orders/${id}`}
+                               src={`https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=https://kolmereport.web.app/#/ordersdetails/${id}`}
                             // src={QrCode}
                             
                             alt="load" height="160px"/></div>

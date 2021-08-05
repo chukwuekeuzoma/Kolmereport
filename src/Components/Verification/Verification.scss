@@ -45,7 +45,7 @@
 }
 
 .Ver_textfield{
-    width: 400px;
+    width:400px;
 }
 
 
@@ -60,20 +60,69 @@
     border: none !important;
     text-align: center !important;
     width: 95%;
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
 } 
 
-.ver_dialog_text{
-    margin-top: 10px;
-    color: #cc7722;
-   font-size: small;
-   font-weight: bolder;
+
+.ver_dialog_text_container{
+    @include flex;
+    justify-content: space-between;
 }
 
-.ver_dialog_inner_text{
-    font-size: smaller;
-    text-transform: capitalize;
+.ver_header_text{
+    font-size: larger;
+    font-weight: bolder;
+    color: #cc7722;
+    text-transform:capitalize;
+}
+
+.ver_product_Name{
+    font-size: larger;
+    text-transform:capitalize;
+}
+
+.ver_font_size{
+    font-size: larger;
+    text-transform:capitalize;
+}
+
+.ver_font_size_phone{
+    margin-left: 40px;
+    font-size: larger;
+    text-transform:capitalize;
+}
+
+.ver_Sender_container{
+    @include flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.ver_margin_buttom{
+    margin-bottom: 40px;
+}
+
+.ver_header_text{
+    font-size: larger;
+    font-weight: bolder;
+    color: #cc7722;
+    text-transform:capitalize;
+}
+
+.ver_phone_text{
+    font-size: larger;
+    font-weight: bolder;
+    color: #cc7722;
+    margin-left: 40px;
+}
+
+.ver_qauntity_container{
+    @include flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .ver_dialog_alert{

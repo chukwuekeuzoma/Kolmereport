@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import "./Verification.scss"
 import { TextField, Button, Dialog, Slide, DialogContent, DialogActions } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -178,7 +178,7 @@ export default function Verification(props) {
                                     <Button variant="outlined" className="Ver_button" type="submit"
                                         disabled={!code}
                                     >
-                                        Confirm
+                                        View Order
                                     </Button>
                                 }
                             </div>
@@ -208,48 +208,63 @@ export default function Verification(props) {
                         X
                     </Button>
                 </DialogActions>
-                <DialogContent style={{ width: "420px", height: "auto" }}>
+                <DialogContent style={{ width: "auto", height: "auto" }}>
                     <div className="ver_dialog_alert">
                         {orderError && <Alert severity="error">{orderError}</Alert>}
                         {orderSuccess && <Alert severity="success">{orderSuccess}</Alert>}
                     </div>
-                    <div>
-                        <div>
-                            <div className="ver_dialog_text"><span>Product Name</span></div>
-                            <div className="ver_dialog_inner_text"><span>{VerData.order_name}</span></div>
+                    <div className="ver_dialog_text_container">
+                         <div>
+                            <div className ="ver_header_text"><span>Product Name</span></div>
+                            <div className="ver_product_Name"><span>{VerData.order_name}</span></div>
+                            <div className="ver_Sender_container">
+                                <div>
+                                    <div className ="ver_header_text"><span>Customer Name</span></div>
+                                    <div className="ver_font_size"><span>{VerData.customer_fullname}</span></div>
+                                </div>
+                                <div>
+                                    <div className ="ver_phone_text"><span>Customer Phone</span></div>
+                                    <div className="ver_font_size_phone"><span>{VerData.customer_phone}</span></div>
+                                </div>
+                            </div>
+                            <div className="ver_margin_buttom">
+                                <div className ="ver_header_text"><span>Address</span></div>
+                                <div className="ver_font_size"><span>{VerData.address}</span></div>
+                            </div>
+                            <div>
+                                <div className ="ver_header_text"><span>Product Description</span></div>
+                                <div className="ver_font_size"><span>{VerData.order_description}</span></div>
+                            </div>
+                            <div className="ver_qauntity_container">
+                                <div>
+                                    <div className ="ver_header_text"><span>Quantity</span></div>
+                                    <div className="ver_font_size"><span>{VerData.quantity}</span></div>
+                                </div>
+                                <div>
+                                    <div className ="ver_header_text"><span>Weight</span></div>
+                                    <div className="ver_font_size"><span>{VerData.weight}</span></div>
+                                </div>
+                                <div>
+                                    <div className ="ver_header_text"><span>Frieght</span></div>
+                                    <div className="ver_font_size"><span>{VerData.freight}</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className ="ver_header_text"><span>Cost</span></div>
+                                <div className="ver_font_size"><span>N {VerData.cost}</span></div>
+                            </div>
+                         </div>
+                        
+                         <div>
+                            <div className="ver_box"><img 
+                               src={`https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=https://kolmereport.web.app/#/ordersdetails/${verId}`}
+                            // src={QrCode}
+                            
+                            alt="load" height="150px"/></div>
                         </div>
-                        <div>
-                            <div className="ver_dialog_text"><span>Send</span></div>
-                            <div className="ver_dialog_inner_text" ><span>{VerData.customer_fullname}</span></div>
-                        </div>
-                        <div>
-                            <div className="ver_dialog_text"><span>Sender phone</span></div>
-                            <div className="ver_dialog_inner_text"><span>{VerData.customer_phone}</span></div>
-                        </div>
-                        <div>
-                            <div className="ver_dialog_text"><span>Address</span></div>
-                            <div className="ver_dialog_inner_text"><span>{VerData.address}</span></div>
-                        </div>
-                        <div>
-                            <div className="ver_dialog_text"><span>Product Description</span></div>
-                            <div className="ver_dialog_inner_text"><span>{VerData.order_description}</span></div>
-                        </div>
-                        <div>
-                            <div className="ver_dialog_text"><span>Quantity</span></div>
-                            <div className="ver_dialog_inner_text"><span>{VerData.quantity}</span></div>
-                        </div>
-                        <div>
-                            <div className="ver_dialog_text"><span>Weight</span></div>
-                            <div className="ver_dialog_inner_text"><span>{VerData.weight}</span></div>
-                        </div>
-                        <div>
-                            <div className="ver_dialog_text"><span>Frieght</span></div>
-                            <div className="ver_dialog_inner_text"><span>{VerData.freight}</span></div>
-                        </div>
-                        <div>
-                            <div className="ver_dialog_text"><span>Cost</span></div>
-                            <div className="ver_dialog_inner_text"><span>N {VerData.cost}</span></div>
-                        </div>
+
+                        
+
                     </div>
                     {dialogLoder ?
                         <Button variant="outlined" className="dialog_button">

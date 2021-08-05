@@ -53,8 +53,8 @@ const validationSchema = yup.object({
     // email: yup.string().email("Pls enter a valid email address").required(),
     address: yup.string().required("Address required"),
     productName: yup.string().required("Product required"),
-    customerId: yup.string(). required("CustomerId required"), 
-    productId: yup.string(). required("ProductId required"),
+    // customerId: yup.string().required("CustomerId required"), 
+    // productId: yup.string().required("ProductId required"),
     description: yup.string().required("Description required"),
     quantity: yup.string().required("Quantity required"),
     weight: yup.string().required("Weight required"),
@@ -116,6 +116,8 @@ export default function Dialogbox({OpenBox, CloseBox}) {
           quantity: "",
           weight:"",
           freight:"",
+          productId:"",
+          customerId:"",
           cost: "",
         },
         onSubmit, 
@@ -244,9 +246,9 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                                             name="customerId"
                                             type="phone"
                                             variant="outlined"
-                                            // value={formik.values.name}
-                                            // className="Phone_textfield"
-                                            // onChange={formik.handleChange}
+                                            value={formik.values.customerId}
+                                            className="Phone_textfield"
+                                            onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
                                         />
                                     </div>
@@ -265,9 +267,9 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                                             name="productId"
                                             type="phone"
                                             variant="outlined"
-                                            // value={formik.values.name}
+                                            value={formik.values.productId}
                                             className="Phone_textfield"
-                                            // onChange={formik.handleChange}
+                                            onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
                                         />
 
