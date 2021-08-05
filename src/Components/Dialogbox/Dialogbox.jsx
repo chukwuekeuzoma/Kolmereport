@@ -53,6 +53,8 @@ const validationSchema = yup.object({
     // email: yup.string().email("Pls enter a valid email address").required(),
     address: yup.string().required("Address required"),
     productName: yup.string().required("Product required"),
+    customerId: yup.string(). required("CustomerId required"), 
+    productId: yup.string(). required("ProductId required"),
     description: yup.string().required("Description required"),
     quantity: yup.string().required("Quantity required"),
     weight: yup.string().required("Weight required"),
@@ -153,8 +155,8 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                                     <div>
                                         <TextField
                                             size="small"
-                                            label="Name"
-                                            placeholder="Name"
+                                            label="Customer Name"
+                                            placeholder="Customer Name"
                                             name="name"
                                             type="name"
                                             variant="outlined"
@@ -174,8 +176,8 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                                     <div>
                                          <TextField
                                             size="small"
-                                            label="Phone"
-                                            placeholder="Phone"
+                                            label="Customer Phone"
+                                            placeholder="Customer Phone"
                                             name="phone"
                                             type="phone"
                                             id="phone"
@@ -232,6 +234,51 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                                         {formik.touched.productName && formik.errors.productName? formik.errors.productName : ""}
                                     </span>
                             </div>
+                            <div className="Dia_field_one_container">
+                                <div>
+                                    <div>
+                                        <TextField
+                                            size="small"
+                                            label="Customer ID"
+                                            placeholder="Customer ID"
+                                            name="customerId"
+                                            type="phone"
+                                            variant="outlined"
+                                            // value={formik.values.name}
+                                            // className="Phone_textfield"
+                                            // onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                        />
+                                    </div>
+                                    <div className="field_container">
+                                        <span className="field">
+                                            {formik.touched.customerId && formik.errors.customerId? formik.errors.customerId : ""}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <TextField
+                                            size="small"
+                                            label="Product ID"
+                                            placeholder="Product ID"
+                                            name="productId"
+                                            type="phone"
+                                            variant="outlined"
+                                            // value={formik.values.name}
+                                            className="Phone_textfield"
+                                            // onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                        />
+
+                                    </div>
+                                    <div className="field_container">
+                                        <span className="field">
+                                            {formik.touched.productId && formik.errors.productId? formik.errors.productId: ""}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                             <div>
                                 <TextField
                                     size="small"
@@ -256,12 +303,12 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                                     <div>
                                         <TextField
                                             size="small"
-                                            label="Quantity"
-                                            placeholder="Quantity"
+                                            label="Quantity(Tonnes)"
+                                            placeholder="Quantity(Tonnes)"
                                             name="quantity"
                                             type="phone"
                                             variant="outlined"
-                                            className="Quantity_textfield"
+                                            className="Weight_textfield_two"
                                             value={formik.values.quantity}
                                             onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}

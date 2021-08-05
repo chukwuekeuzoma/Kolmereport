@@ -44,11 +44,11 @@ export default function OrdersDetails(props) {
                         <div className="product_Name"><span>{orderDetails.order_name}</span></div>
                         <div className="Or_Sender_container">
                             <div>
-                                <div className ="Or_header_text"><span>Sender name</span></div>
+                                <div className ="Or_header_text"><span>Customer Name</span></div>
                                 <div className="font_size"><span>{orderDetails.customer_fullname}</span></div>
                             </div>
                             <div>
-                                <div className ="Or_phone_text"><span>Sender phone</span></div>
+                                <div className ="Or_phone_text"><span>Customer Phone</span></div>
                                 <div className="font_size_phone"><span>{orderDetails.customer_phone}</span></div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@ export default function OrdersDetails(props) {
                                src={`https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=https://delivered-demo.herokuapp.com/api/orders/${id}`}
                             // src={QrCode}
                             
-                            alt="load" height="150px"/></div>
+                            alt="load" height="160px"/></div>
                         </div>
                         {orderDetails.is_processing?
                         <Button variant="outlined" className="Or_button"> 

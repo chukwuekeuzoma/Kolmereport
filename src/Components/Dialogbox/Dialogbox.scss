@@ -21,6 +21,7 @@
 
 .Product_textfield{
     margin-top:25px !important;
+    margin-bottom: 25px !important;
 }
 
 .Quantity_textfield{
@@ -30,9 +31,15 @@
 
 .Weight_textfield{
     margin-top:25px !important;
-    margin-left: 10px !important; 
-    margin-right: 10px !important;
-    width: 126px !important;
+    margin-left: 5px !important; 
+    margin-right: 5px !important;
+    width: 129px !important;
+}
+
+.Weight_textfield_two{
+    margin-top:25px !important; 
+    margin-right: 3px !important;
+    width: 150px !important;
 }
 
 .Freight_textfield{
@@ -48,7 +55,7 @@
     color:white !important;
     background: #cc7722 !important;
     border: none !important;
-    width: 95% !important;
+    width: 100% !important;
     margin-top: 25px !important;
     margin-bottom: 25px !important;
     text-align: center !important;
