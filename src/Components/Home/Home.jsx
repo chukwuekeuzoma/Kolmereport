@@ -84,7 +84,7 @@ export default function Home(props) {
                                 </div>
                             </div>
                             <div className="Home_pending_order">
-                                <div className="Home_pending_inner">Pending Orders</div>
+                                <div className="Home_pending_inner">In Transit</div>
                                    
                                     <div className="Home_pending_inner_main">
                                         <div>

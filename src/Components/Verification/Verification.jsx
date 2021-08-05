@@ -257,7 +257,7 @@ export default function Verification(props) {
                         
                          <div>
                             <div className="ver_box"><img 
-                               src={`https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=https://kolmereport.web.app/#/ordersdetails/${verId}`}
+                               src={`https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=https://delivered-demo.herokuapp.com/api/orders/confirm/${verId}`}
                             // src={QrCode}
                             
                             alt="load" height="150px"/></div>
