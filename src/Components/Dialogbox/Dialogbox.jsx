@@ -53,8 +53,8 @@ const validationSchema = yup.object({
     // email: yup.string().email("Pls enter a valid email address").required(),
     address: yup.string().required("Address required"),
     productName: yup.string().required("Product required"),
-    // customerId: yup.string().required("CustomerId required"), 
-    // productId: yup.string().required("ProductId required"),
+    customerId: yup.string().required("CustomerId required"), 
+    productId: yup.string().required("ProductId required"),
     description: yup.string().required("Description required"),
     quantity: yup.string().required("Quantity required"),
     weight: yup.string().required("Weight required"),
@@ -247,7 +247,7 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                                             type="phone"
                                             variant="outlined"
                                             value={formik.values.customerId}
-                                            className="Phone_textfield"
+                                            // className="Phone_textfield"
                                             onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
                                         />
@@ -289,6 +289,8 @@ export default function Dialogbox({OpenBox, CloseBox}) {
                                     name="description"
                                     type="name"
                                     variant="outlined"
+                                    multiline
+                                    rows={4}
                                     className="Delivery_textfield"
                                     value={formik.values.description}
                                     onChange={formik.handleChange}

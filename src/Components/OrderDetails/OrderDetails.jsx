@@ -5,6 +5,7 @@ import {Button} from '@material-ui/core';
 import {useParams} from "react-router-dom"
 import axios from "axios"
 import PulseLoader from "react-spinners/ClipLoader"
+import moment from 'moment'
 // import QrCode from "../../Images/Qrcode.png"
 
 
@@ -74,9 +75,22 @@ export default function OrdersDetails(props) {
                                 <div className="font_size"><span>{orderDetails.freight}</span></div>
                             </div>
                         </div>
-                        <div>
-                            <div className ="Or_header_text"><span>Cost</span></div>
-                            <div className="font_size"><span>N {orderDetails.cost}</span></div>
+                        <div className="Dlivery_date_container">
+                            <div>
+                                <div className ="Or_header_text"><span>Cost</span></div>
+                                <div className="font_size"><span>N {orderDetails.cost}</span></div>
+                            </div>
+                            <div>
+                                <div className ="Or_header_text"><span>Delivery Date</span></div>
+                                <div className="font_size"><span>
+                                    {
+                                        orderDetails.is_processing === true?
+                                          <div>In Transit</div>
+                                        :
+                                        moment(orderDetails.updated_at).format('D/MM/YYYY')
+                                    }
+                                </span></div>
+                            </div>
                         </div>
                     </div>
                     <div className="Or_button_container">

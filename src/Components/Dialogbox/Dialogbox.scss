@@ -8,46 +8,50 @@
 
 .Dia_field_one_container{
     @include flex;
+    margin-top: 25px !important;
 }
 
 .Phone_textfield{
-    margin-left: 5px !important;
+    margin-left: 15px !important;
+    width: 100%;
 }
 
 .Delivery_textfield{
     margin-top:25px !important;
-    width: 95% !important;
+    width: 100% !important;
 }
 
 .Product_textfield{
     margin-top:25px !important;
-    margin-bottom: 25px !important;
+    // margin-bottom: 25px !important;
+    width: 100% !important;
 }
 
 .Quantity_textfield{
-    margin-top:25px !important;
+    margin-top:18px !important;
     width: 126px !important;
 }
 
 .Weight_textfield{
-    margin-top:25px !important;
+    margin-top:18px !important;
     margin-left: 5px !important; 
     margin-right: 5px !important;
     width: 129px !important;
 }
 
 .Weight_textfield_two{
-    margin-top:25px !important; 
+    margin-top:18px !important; 
     margin-right: 3px !important;
     width: 150px !important;
 }
 
 .Freight_textfield{
-    margin-top:25px !important;
+    margin-top:18px !important;
     width: 126px !important;
 }
 .Cost_textfield{
     margin-top:25px !important;
+    width: 100% !important;
 }
 
 .Dialog_button{
@@ -65,7 +69,7 @@
     width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
-    margin-left: 8px;
+    margin-left: 10px;
 }
 
 .field{
@@ -76,6 +80,6 @@
 }
 
 .Alert{
-    width: 95% !important;
+    width: 100% !important;
     margin-bottom: 20px !important;
 }

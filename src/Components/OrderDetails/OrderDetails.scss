@@ -88,3 +88,8 @@
     margin-bottom: 20px !important;
 
 }
+
+.Dlivery_date_container{
+    @include flex;
+    justify-content: space-between;
+}
