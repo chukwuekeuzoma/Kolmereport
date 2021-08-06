@@ -74,7 +74,7 @@ export default function Orders(props) {
                                 </TableHead>
                                 
                                     <TableBody>
-                                        {orderData.reverse().map(({ order_name, created_at, is_processing, id }, index) => (
+                                        {orderData.slice().reverse().map(({ order_name, created_at, is_processing, id }, index) => (
                                             <TableRow key={index}>
                                                 <TableCell component="th" scope="row">
                                                     {index + 1}
