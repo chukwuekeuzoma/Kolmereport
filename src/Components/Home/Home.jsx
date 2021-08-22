@@ -29,15 +29,16 @@ export default function Home(props) {
         setPendingLoader(true)
         axios.get("https://delivered-demo.herokuapp.com/api/orders/processing")
             .then(response => {
-                if ( PendingData) {
+                if (PendingData) {
                     setOrderPending(response.data.data)
                     setPendingLoader(false)
                 }
             })
-            .catch(e => { if (PendingData) { console.log(e) }
-             setPendingLoader(false) 
+            .catch(e => {
+                if (PendingData) { console.log(e) }
+                setPendingLoader(false)
             })
-        return () =>  PendingData = false
+        return () => PendingData = false
     }, [])
 
     useEffect(() => {
@@ -45,15 +46,16 @@ export default function Home(props) {
         setSucessLoader(true)
         axios.get("https://delivered-demo.herokuapp.com/api/orders/closed")
             .then(response => {
-                if ( SucessData) {
+                if (SucessData) {
                     setOrderSucessful(response.data.data)
                     setSucessLoader(false)
                 }
             })
-            .catch(e => { if (SucessData) { console.log(e) }
-             setSucessLoader(false) 
+            .catch(e => {
+                if (SucessData) { console.log(e) }
+                setSucessLoader(false)
             })
-        return () =>  SucessData = false
+        return () => SucessData = false
     }, [])
 
     return (
@@ -72,28 +74,28 @@ export default function Home(props) {
                         <div className="Home_line"></div>
                     </div>
                     <div className="Home_process_container">
-                            <div className="Home_success_order">
-                                <div  className="Home_success_inner">Successful Orders</div>
-                                
-                                <div className="Home_success_inner_main">
-                                    <div>
-                                       {SucessLoader?<PulseLoader color={"white"} size={25} />
+                        <div className="Home_success_order">
+                            <div className="Home_success_inner">Successful Orders</div>
+
+                            <div className="Home_success_inner_main">
+                                <div>
+                                    {SucessLoader ? <PulseLoader color={"white"} size={25} />
                                         :
                                         OrderSucessful.length}
-                                    </div>
                                 </div>
                             </div>
-                            <div className="Home_pending_order">
-                                <div className="Home_pending_inner">In Transit</div>
-                                   
-                                    <div className="Home_pending_inner_main">
-                                        <div>
-                                            {PendingLoader?<PulseLoader color={"white"} size={25} />
-                                            :
-                                            OrderPending.length}
-                                        </div>
-                                    </div>
+                        </div>
+                        <div className="Home_pending_order">
+                            <div className="Home_pending_inner">In Transit</div>
+
+                            <div className="Home_pending_inner_main">
+                                <div>
+                                    {PendingLoader ? <PulseLoader color={"white"} size={25} />
+                                        :
+                                        OrderPending.length}
+                                </div>
                             </div>
+                        </div>
                     </div>
                     <Dialogbox OpenBox={Open} CloseBox={handleClose} />
                 </div>

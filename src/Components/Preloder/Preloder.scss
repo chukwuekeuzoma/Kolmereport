@@ -6,7 +6,7 @@
 .Preloder_container{
     @include flex;
     flex-direction: column;
-    justify-content: center;
+    justify-self: center;
     align-items: center;
     margin-top: 220px;
 }
