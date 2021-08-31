@@ -15,6 +15,8 @@ export default function Home(props) {
     const [OrderSucessful, setOrderSucessful] = useState([])
     const [PendingLoader, setPendingLoader] = useState(false)
     const [SucessLoader, setSucessLoader] = useState(false)
+    
+
 
     const handleClose = () => {
         setOpen(false);
@@ -27,7 +29,7 @@ export default function Home(props) {
     useEffect(() => {
         let PendingData = true
         setPendingLoader(true)
-        axios.get("https://delivered-demo.herokuapp.com/api/orders/processing")
+        axios.get("orders/processing")
             .then(response => {
                 if (PendingData) {
                     setOrderPending(response.data.data)
@@ -44,7 +46,7 @@ export default function Home(props) {
     useEffect(() => {
         let SucessData = true
         setSucessLoader(true)
-        axios.get("https://delivered-demo.herokuapp.com/api/orders/closed")
+        axios.get("orders/closed")
             .then(response => {
                 if (SucessData) {
                     setOrderSucessful(response.data.data)

@@ -19,7 +19,7 @@ export default function OrdersDetails(props) {
     useEffect(() => {
         let Orderdata = true
         setDloder(true)
-        axios.get(`https://delivered-demo.herokuapp.com/api/orders/${id}`)
+        axios.get(`orders/${id}`)
             .then(response => {
                 if (Orderdata) {
                     setorderDetails(response.data.data)

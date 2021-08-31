@@ -82,7 +82,7 @@ export default function Verification(props) {
         e.preventDefault();
         let dataCheck = true
         setverLoader(true)
-        axios.post('https://delivered-demo.herokuapp.com/api/orders/confirm', codedata)
+        axios.post('orders/confirm', codedata)
             .then(response => {
                 if (dataCheck) {
                     if (response.data.status === "success") {
@@ -116,7 +116,7 @@ export default function Verification(props) {
     const onConfirmCode = () => {
         let Orderdata = true
         setdialogLoder(true)
-        axios.patch(`https://delivered-demo.herokuapp.com/api/orders/confirm/${verId}`)
+        axios.patch(`orders/confirm/${verId}`)
             .then(response => {
                 if (Orderdata) {
                     if (response.data.status === "success") {

@@ -83,7 +83,7 @@ export default function Dialogbox({OpenBox, CloseBox}) {
 
       const onSubmit = async (values) => {
            setLoader(true)
-        axios.post('https://delivered-demo.herokuapp.com/api/orders/process', values)
+        axios.post('orders/process', values)
           .then(response => {
             if (response.data.status === "success") {
               setSuccess(response.data.message)

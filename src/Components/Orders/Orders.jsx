@@ -36,7 +36,7 @@ export default function Orders(props) {
     useEffect(() => {
         let Orderdata = true
         setLoder(true)
-        axios.get("https://delivered-demo.herokuapp.com/api/orders")
+        axios.get("orders")
             .then(response => {
                 if (Orderdata) {
                     setorderData(response.data.data)
@@ -98,6 +98,7 @@ export default function Orders(props) {
                     </div>
                 </div>
             </Fade>
+            
         </>
     );
 }
