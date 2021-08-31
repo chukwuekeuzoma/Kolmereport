@@ -81,7 +81,7 @@ export default function Dialogbox({OpenBox, CloseBox}) {
       });
 
 
-      const onSubmit = async (values) => {
+      const onSubmit = (values) => {
            setLoader(true)
         axios.post('orders/process', values)
           .then(response => {
