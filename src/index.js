@@ -1,19 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import axios from "axios"
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.scss";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import axios from "axios";
 
-
-const URL = process.env.REACT_APP_API_BASE_URL
+const URL = process.env.REACT_APP_API_BASE_URL;
 axios.defaults.baseURL = URL;
 
 ReactDOM.render(
+  <App />,
 
-    <App />,
-  
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
